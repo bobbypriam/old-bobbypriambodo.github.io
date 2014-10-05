@@ -13,7 +13,7 @@ html{font: 100%/1.5 Arial,sans-serif;color:#404040;}
 @media(min-width:60em){html{font: 140%/1.6 Arial,sans-serif;letter-spacing:-0.015em;}}
 a{color:#427fed;font-size:100%}
 h1{font: 160%/1 sans-serif;color:#c34646;letter-spacing:-0.015em;padding-top:.5em;}
-h1 .sub{font:50%/1 sans-serif;color:#888;}
+h1 .sub{font:50%/1 sans-serif;color:#888;display:block;}
 @media(min-width:40em){h1{font: 230%/1 sans-serif;padding-bottom:.5em;padding-top:.15em;}}
 @media(min-width:60em){h1{font: 240%/1 sans-serif;padding-bottom:.5em;padding-top:1.2em;}}
 h2{font: 130%/1 sans-serif;color:#c34646;letter-spacing:-0.015em;}
@@ -29,7 +29,7 @@ footer{font: 80%/1 sans-serif;color:#888;text-align: center;padding: 30px 0;}
 </head>
 <body>
 <article>
-<h1>Tutorial aima-java untuk searching <div class="sub">| bobbypriambodo.com</div></h1>
+<h1>Tutorial aima-java untuk searching <span class="sub">| bobbypriambodo.com</span></h1>
 
 <p><strong><em>Timestamp: Sun, 05 October 2014, 18:29</em></strong></p>
 
@@ -52,7 +52,7 @@ footer{font: 80%/1 sans-serif;color:#888;text-align: center;padding: 30px 0;}
 <p>Sebelum memulai tutorial ini, pastikan:</p>
 
 <ol>
-<li>Di komputer Anda sudah ter-install JDK versi 1.7 (saya mengalami masalah ketika menggunakan JDK 1.8). Jika belum ada, Anda bisa men-download-nya <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" alt="Download Java SE Development Kit" target="_blank" />di sini</a>.</li>
+<li>Di komputer Anda sudah ter-install JDK versi 1.7 (saya mengalami masalah ketika menggunakan JDK 1.8). Jika belum ada, Anda bisa men-download-nya <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank">di sini</a>.</li>
 <li>Anda memiliki pengetahuan pemrograman dengan bahasa Java. Saya tidak akan membahas mengenai sintaks Java di tutorial ini.</li>
 <li>Anda sudah men-download aima-java versi terbaru di <a href="https://code.google.com/p/aima-java/" target="_blank">repository aima-java</a>. Pada waktu penulisan tutorial ini, versi terbaru adalah versi 1.8.0.</li>
 <li>Anda memiliki pengetahuan mengenai konsep <em>state space search</em>.
@@ -130,7 +130,7 @@ Main.java
 
 <p>Class ini mengimplementasikan interface <code>aima.core.search.framework.ActionsFunction</code>. Method yang harus diimplementasi di class ini adalah</p>
 
-<pre class="code"><code>public Set<Action> actions(Object state);</code></pre>
+<pre class="code"><code>public Set&lt;Action&gt; actions(Object state);</code></pre>
 
 <p>Method <code>actions</code> menerima sebuah state dan mengembalikan <em>possible actions</em> yang mungkin dilakukan agent dari state tersebut. Artinya, di method tersebut kita dapat melakukan pengecekan mana action yang valid dan tidak, dan sebagainya.</p>
 
