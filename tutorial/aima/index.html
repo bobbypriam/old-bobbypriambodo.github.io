@@ -8,17 +8,20 @@
 <meta name="author" content="Bobby Priambodo" />
 <style>
 body{max-width:1000px;margin:0 auto;padding:0 30px;padding:0 .5em;}
-html{font: 100%/1.5 'robotolight',Arial,sans-serif;color:#404040;}
-@media(min-width:40em){html{font: 120%/1.6 'robotolight',Arial,sans-serif;}}
-@media(min-width:60em){html{font: 140%/1.6 'robotolight',Arial,sans-serif;letter-spacing:-0.015em;}}
+html{font: 100%/1.5 Arial,sans-serif;color:#404040;}
+@media(min-width:40em){html{font: 120%/1.6 Arial,sans-serif;}}
+@media(min-width:60em){html{font: 140%/1.6 Arial,sans-serif;letter-spacing:-0.015em;}}
 a{color:#427fed;font-size:100%}
-h1{font: 160%/1 'robotolight',sans-serif;color:#404040;letter-spacing:-0.015em;padding-top:.5em;}h1 .sub{font:50%/1 'robotolight',sans-serif;color:#888;}
-@media(min-width:40em){h1{font: 230%/1 'robotolight',sans-serif;padding-bottom:.5em;padding-top:.15em;}}
-@media(min-width:60em){h1{font: 240%/1 'robotolight',sans-serif;padding-bottom:.5em;padding-top:1.2em;}}
-h2{font: 130%/1 'robotolight',sans-serif;color:#222;letter-spacing:-0.015em;}
-@media(min-width:40em){h2{font: 175%/1 'robotolight',sans-serif;color:#222;letter-spacing:-0.035em;}}
-h3{font: 120%/1 'robotolight',sans-serif;color:#222;letter-spacing:-0.015em;}
-@media(min-width:40em){h2{font: 155%/1 'robotolight',sans-serif;color:#222;letter-spacing:-0.035em;}}
+h1{font: 160%/1 sans-serif;color:#c34646;letter-spacing:-0.015em;padding-top:.5em;}
+h1 .sub{font:50%/1 sans-serif;color:#888;}
+@media(min-width:40em){h1{font: 230%/1 sans-serif;padding-bottom:.5em;padding-top:.15em;}}
+@media(min-width:60em){h1{font: 240%/1 sans-serif;padding-bottom:.5em;padding-top:1.2em;}}
+h2{font: 130%/1 sans-serif;color:#c34646;letter-spacing:-0.015em;}
+@media(min-width:40em){h2{font: 175%/1 sans-serif;color:#c34646;letter-spacing:-0.035em;}}
+h3{font: 110%/1 sans-serif;color:#222;letter-spacing:-0.015em;}
+@media(min-width:40em){h3{font: 130%/1 sans-serif;color:#222;letter-spacing:-0.035em;}}
+h4{font: 100%/1 sans-serif;color:#222;letter-spacing:-0.015em;font-weight:bold;margin-bottom:1em;}
+@media(min-width:40em){h4{font: 110%/1 sans-serif;color:#222;letter-spacing:-0.035em;font-weight:bold;margin-bottom:1em;}}
 article{padding-left:.25em;padding-right:.25em;}@media(min-width:40em){article{padding-left:2em;padding-right:1em;}}
 .code{font: 90%/1.3 Courier, monospace;background:#333;margin-bottom:25px;padding:1.5em;overflow:auto;max-width:100%;color:#fff;}
 footer{font: 80%/1 sans-serif;color:#888;text-align: center;padding: 30px 0;}
@@ -28,17 +31,21 @@ footer{font: 80%/1 sans-serif;color:#888;text-align: center;padding: 30px 0;}
 <article>
 <h1>Tutorial aima-java untuk searching <div class="sub">| bobbypriambodo.com</div></h1>
 
-<p>Berawal dari minimnya tutorial yang cukup jelas mengenai bagaimana cara menggunakan library aima-java untuk memecahkan masalah searching sederhana yang cukup jelas (terlebih jika kita meminta penjelasan dalam Bahasa Indonesia), saya akan mencoba membagi pengetahuan yang telah saya peroleh.</p>
+<p><strong><em>Timestamp: Sun, 05 October 2014, 18:29</em></strong></p>
 
-<p>Yang akan dibahas di tutorial ini hanya mengenai penggunaan aima-java. Library tersebut juga tersedia dalam bahasa Python (aima-python) tapi tutorial ini tidak akan membahas hal tersebut.</p>
+<p>Berawal dari minimnya tutorial yang cukup jelas mengenai bagaimana cara menggunakan library aima-java untuk memecahkan masalah searching sederhana yang cukup jelas (terlebih jika kita meminta penjelasan dalam Bahasa Indonesia), saya akan mencoba membagi pengetahuan yang telah saya peroleh dari berbagai sumber.</p>
 
-<p><strong>Perhatian:</strong> Saya juga masih belajar dan bukan tidak mungkin dalam penjelasan berikut akan ada kesalahan-kesalahan seperti tidak mengikuti <em>best practice</em> dan sebagainya. Jika ingin memberikan komentar perbaikan bisa hubungi saya di <a href="mailto:bobby.priambodo@gmail.com">bobby.priambodo@gmail.com</a>.</p>
+<p>Yang akan dibahas di tutorial ini hanya mengenai penggunaan aima-java. Library tersebut juga tersedia dalam bahasa Python (aima-python) tapi tutorial ini tidak akan membahas hal tersebut. Tutorial ini juga  mengasumsikan Anda menggunakan environment command line (bukan IDE), namun seharusnya jika menggunakan IDE seperti Eclipse, konsepnya juga sama.</p>
+
+<p>Tutorial ini saya buat dengan masalah spesifik Tugas 1 mata kuliah Sistem Cerdas tahun akademik 2014/2015 di Fakultas Ilmu Komputer Universitas Indonesia (selanjutnya akan disebut secara singkat "Tugas 1"), namun saya yakin konsep yang diberikan dapat digunakan di masalah-masalah lain.</p>
+
+<p><strong>Perhatian:</strong> Saya juga masih belajar dan bukan tidak mungkin dalam penjelasan berikut akan ada kesalahan-kesalahan seperti tidak mengikuti <em>best practice</em> dan sebagainya. Jika ingin memberikan komentar perbaikan bisa hubungi saya di <code>bobby.priambodo(at)gmail.com</code>.</p>
 
 <h2 id="what-is-aima">What is aima-java?</h2>
 
-<p>Library aima-java adalah sebuah implementasi algoritma-algoritma yang ada di buku <a href="http://aima.cs.berkeley.edu/">Artificial Intelligence: A Modern Approach</a> karangan <a href="http://www.norvig.com/">Norvig</a> dan <a href="http://www.cs.berkeley.edu/~russell/">Russell</a> dalam bahasa Java.</p>
+<p>Library aima-java adalah implementasi algoritma-algoritma yang ada di buku <a href="http://aima.cs.berkeley.edu/">Artificial Intelligence: A Modern Approach</a> karangan <a href="http://www.norvig.com/">Norvig</a> dan <a href="http://www.cs.berkeley.edu/~russell/">Russell</a> dalam bahasa Java.</p>
 
-<p>Library ini menyediakan interface-interface yang dapat kita gunakan untuk memecahkan masalah-masalah, di antaranya masalah <em>state space search</em> yang menjadi fokus di Tugas 1.</p>
+<p>Library ini menyediakan framework interface-interface yang dapat kita gunakan untuk memecahkan masalah-masalah, di antaranya masalah <em>state space search</em> yang menjadi fokus kita di Tugas 1.</p>
 
 <h2 id="prerequisite">Prerequisite</h2>
 
@@ -48,6 +55,7 @@ footer{font: 80%/1 sans-serif;color:#888;text-align: center;padding: 30px 0;}
 <li>Di komputer Anda sudah ter-install JDK versi 1.7 (saya mengalami masalah ketika menggunakan JDK 1.8). Jika belum ada, Anda bisa men-download-nya <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" alt="Download Java SE Development Kit" target="_blank" />di sini</a>.</li>
 <li>Anda memiliki pengetahuan pemrograman dengan bahasa Java. Saya tidak akan membahas mengenai sintaks Java di tutorial ini.</li>
 <li>Anda sudah men-download aima-java versi terbaru di <a href="https://code.google.com/p/aima-java/" target="_blank">repository aima-java</a>. Pada waktu penulisan tutorial ini, versi terbaru adalah versi 1.8.0.</li>
+<li>Anda memiliki pengetahuan mengenai konsep <em>state space search</em>.
 </ol>
 
 <h2 id="setting-up">Setting up your workspace</h2>
@@ -66,7 +74,7 @@ footer{font: 80%/1 sans-serif;color:#888;text-align: center;padding: 30px 0;}
 
 <p>Anda bisa membaca <code>README.txt</code> untuk mengetahui penjelasan mengenai kegunaan masing-masing secara lengkap. Singkatnya, untuk membuat sebuah program sendiri, yang anda perlukan adalah direktori <code>aima-core</code>.</p>
 
-<p>Masuklah ke direktori <code>aima-core/src/main/java/</code> dan copy direktori <code>aima</code> beserta isinya ke workspace Anda. Direktori tersebut merupakan root dari package <code>aima.core.*</code> yang akan kita gunakan nanti.</p>
+<p>Masuklah ke direktori <code>aima-core/src/main/java/</code> dan copy direktori <code>aima</code> beserta isinya ke workspace Anda. Direktori tersebut merupakan root dari package <code>aima.core.*</code> yang akan kita gunakan nanti. <small><strong>(Mengapa tidak <code>aima-core.jar</code>? Baca <a href="#clarifications">di sini</a>)</strong></small></p>
 
 <p>Untuk workspace program yang akan kita buat, saya menggunakan struktur sebagai berikut:</p>
 
@@ -88,16 +96,111 @@ Main.java
 
 <p>Struktur dan penamaan ini akan berpengaruh ketika kita ingin meng-<code>import</code> kode-kode yang kita perlukan dalam aplikasi kita.</p>
 
-<h2 id="necessary-classes">Necessary classes</h2>
+<h2 id="necessary-implementations">Necessary implementations</h2>
 
 <p>Ini adalah bagian paling penting dalam penggunaan library aima-java. Seperti yang dibilang di atas, aima-java menyediakan interface-interface yang berguna untuk pemecahan masalah. Layaknya sebuah interface, tugas kita adalah menyediakan implementasi-implementasi yang diperlukan agar algoritma searching yang disediakan oleh library tersebut dapat bekerja sesuai yang kita inginkan.</p>
 
-<h3>Problem State Representation</h3>
+<p>Implementasi-implementasi berikut berada di dalam package masalah Anda (misalnya <code>masalah/robot/</code>).</p>
+
+<h3>1. Problem State Representation</h3>
+
+<p>Anda harus membuat sebuah class sebagai representasi state dari problem yang ingin dipecahkan. Class ini bersifat independen terhadap framework; ia tidak perlu menjadi subclass dari apapun. Bisa dibilang class ini merupakan core dari permasalahan kita, tanpanya kita tidak bisa memecahkan masalah.</p>
+
+<p>Implementasi dari representasi state ini bisa sangat beragam, tergantung dari masalah apa yang ingin dipecahkan (bahkan satu masalah dapat memiliki lebih dari satu representasi yang cocok). Untuk Tugas 1, apakah apa saja elemen yang butuh kita simpan? Apakah kita harus menggunakan array dua dimensi atau ada cara lain? Apa saja operasi-operasi yang bisa dilakukan di sebuah state (misalnya menaruh elemen, memindahkan elemen, melakukan pengecekan validitas gerakan)?</p>
+
+<p><strong>Contoh class:</strong><br /><code>aima.core.environment.nqueens.NQueensBoard</code>, <code>aima.core.environment.eightpuzzle.EightPuzzleBoard</code>.</p>
+
+<h3>2. Goal Test</h3>
+
+<p>Class berikutnya yang harus dibuat adalah implementasi dari interface <code>aima.core.search.framework.GoalTest</code>. Class ini harus menyediakan method untuk pengecekan apakah state saat ini sudah merupakan goal state atau belum. Method yang harus diimplementasi adalah</p>
+
+<pre class="code"><code>public boolean isGoalState(Object state);</code></pre>
+
+<p>Seperti Problem State Representation, goal test ini juga tergantung pada masalah yang ingin kita pecahkan. Pada kasus Tugas 1, kapan kita sebut dia sebagai goal state? Bagaimana cara kita tahu semua debu sudah berada di pengki? Semua tergantung pada representasi state yang Anda buat.</p>
+
+<p><strong>Contoh class:</strong><br /><code>aima.core.environment.nqueens.NQueensGoalTest</code>, <code>aima.core.environment.eightpuzzle.EightPuzzleGoalTest</code>.</p>
+
+<h3>3. Function Factory</h3>
+
+<p>Class ini berguna untuk mendefinisikan Successor Function bagi masalah kita. Seperti yang kita ketahui, Successor Function menerima sebuah state dan mengembalikan himpunan pair dari action dan state hasil.</p>
+
+<p>Dengan aima-java, FunctionFactory menjadi representasi Successor Function dengan memiliki dua inner class, yaitu ActionsFunction dan ResultFunction, serta method getter untuk mengambil keduanya.</p>
+
+<h4>3. a. ActionsFunction</h4>
+
+<p>Class ini mengimplementasikan interface <code>aima.core.search.framework.ActionsFunction</code>. Method yang harus diimplementasi di class ini adalah</p>
+
+<pre class="code"><code>public Set<Action> actions(Object state);</code></pre>
+
+<p>Method <code>actions</code> menerima sebuah state dan mengembalikan <em>possible actions</em> yang mungkin dilakukan agent dari state tersebut. Artinya, di method tersebut kita dapat melakukan pengecekan mana action yang valid dan tidak, dan sebagainya.</p>
+
+<h4>3. b. ResultFunction</h4>
+
+<p>Class ini mengimplementasikan interface <code>aima.core.search.framework.ResultFunction</code>. Method yang harus diimplementasi di class ini adalah</p>
+
+<pre class="code"><code>public Object result(Object s, Action a);</code></pre>
+
+<p>Method <code>result</code> menerima sebuah state serta action yang dilakukan, dan mengembalikan state hasil. Di sini kita dapat berasumsi bahwa <code>a</code> adalah action yang valid, karena pengecekan sudah dilakukan oleh <code>ActionsFunction</code>. Kita cukup men-generate board baru dan menempatkan elemen-elemen sesuai dengan action yang dilakukan.</p>
+
+<p><strong>Jangan melakukan perubahan pada state awal <code>s</code>!</strong> State awal akan dipakai dalam ekspansi node yang lain, dan kita harus memastikan ia masih seperti sedia kala. Karena Java menggunakan <em>call by reference</em> untuk object, maka perubahan dapat mengubah object aslinya.</p>
+
+<p><strong>Contoh class:</strong><br /><code>aima.core.environment.nqueens.NQueensFunctionFactory</code>, <code>aima.core.environment.eightpuzzle.EightPuzzleFunctionFactory</code>.</p>
+
+<h3>4. Heuristic Function</h3>
+
+<p>Class ini diperlukan jika kita ingin menggunakan informed search, seperti A* (AStar). Class ini mengimplementasi interface <code>aima.core.search.framework.HeuristicFunction</code>. Method yang harus diimplementasi adalah</p>
+
+<pre class="code"><code>public double h(Object state);</code></pre>
+
+<p>Method ini menerima sebuah state dan mengembalikan hasil perhitungan <em>heuristic function</em>-nya. Implementasinya tergantung <em>heuristic function</em> yang ingin Anda pakai, yang juga tergantung dari masalah apa yang ingin Anda selesaikan.</p>
+
+<h3>5. Problem Solver</h3>
+
+<p>Dokumentasi (minim) aima-java tidak menyertakan hal ini, tapi saya pikir class ini penting untuk <em>benar-benar</em> menjalankan algoritma searching.</p>
+
+<p>Implementasi class ini tidak memiliki panduan khusus karena ia tak harus mengimplementasi interface apa pun. Pada intinya ia harus menyediakan method-method searching untuk algoritma tertentu (IDS, A*, BFS, dan sebagainya), serta bisa memanggil method searching pada sebuah problem yang sesuai dengan algoritma yang diinginkan.</p>
+
+<p><strong>Beberapa class yang bisa jadi referensi untuk implementasi (ada di aima-gui):</strong><br /><code>aima.gui.demo.search.NQueensDemo</code>, <code>aima.gui.demo.search.EightPuzzleDemo</code>.</p>
+
+<h3>6. (Optional) Dynamic Action</h3>
+
+<p>DynamicAction adalah sebuah class yang bisa menyimpan action yang memiliki atribut yang dapat berubah. Kita dapat membuat class yang menjadi subclass <code>aima.core.agent.impl.DynamicAction</code>, atau cukup menggunakan <code>DynamicAction</code> secara langsung.
+
+<p><strong>Contoh class yang meng-extends <code>DynamicAction</code>:</strong><br /><code>aima.core.environment.nqueens.QueenAction</code>.</p>
+
+<p>Untuk contoh yang langsung menggunakan <code>DynamicAction</code> (tanpa subclass), Anda bisa melihat implementasi <code>EightPuzzleFunctionFactory</code>, sedangkan yang tidak langsung Anda bisa melihat implementasi <code>NQueensFunctionFactory</code>.
+
+<h2 id="main-java-implementation">Main.java implementation</h2>
+
+<p>Untuk implementasi <code>Main.java</code> cukup straightforward. Anda bisa melakukan penerimaan input yang diperlukan dan sebagainya. Beberapa hal penting, di class ini Anda melakukan inisialisasi class representasi state yang telah Anda buat pada bagian <a href="#necessary-implementations">necessary implementations</a>, mendefinisikan initial state dengan menempatkan elemen-elemen, serta melakukan pemanggilan method search dari class problem solver yang juga telah dibuat sebelumnya.</p>
+
+<h2 id="compiling-and-running">Compiling and running</h2>
+
+<p>Jika implementasinya sudah benar, maka untuk meng-<em>compile</em> program Anda, silakan lakukan</p>
+
+<pre class="code"><code>$ javac Main.java masalah/robot/*.java</code></pre>
+
+<p>Perintah tersebut akan Kemudian Anda cukup memanggil (dengan tambahan argumen jika diperlukan)</p>
+
+<pre class="code"><code>$ java Main &lt;args0&gt; &lt;args1&gt; ...</code></pre>
+
+<p>Selamat! Anda telah berhasil membuat program solusi untuk searching dengan menggunakan aima-java.</p>
+
+<h2 id="clarifications">Clarifications</h2>
+
+<p>Tutorial ini meminta Anda untuk menyalin direktori source code package <code>aima.core.*</code> ke workspace Anda. Sebenarnya, dalam zip yang diperoleh ketika Anda men-download aima-java, terdapat file <code>aima-core.jar</code> di direktori <code>release/</code> yang merupakan file-file .class yang sudah dibungkus menjadi satu dan seharusnya bisa langsung dipakai. Namun saya masih belum berhasil menggunakannya jika melalui command line (saya sudah mencoba menggunakan javac dengan option <code>-cp ".:aima-core.jar:"</code> dengan berbagai macam kombinasi). Tutorial ini akan di-update segera setelah saya menemukan caranya.</p>
+
+<p>Tahu caranya? Hubungi saya di <code>bobby.priambodo(at)gmail.com</code>. Saya akan mencantumkan nama Anda sebagai kontributor.</p>
+
+<h2 id="final-note">Final note</h2>
+
+<p>Terima kasih sudah mengikuti tutorial ini sampai akhir. Jika ada kritik atau saran, silakan sampaikan ke <del><code>/dev/null</code></del> saya melalui email yang tertera di atas.</p> 
 
 </article>
 
 <footer>
 <p>You have reached the bottom of the page at bobbypriambodo.com! <a href="#">Go up?</a></p>
+<p>Page hosted at GitHub.</p>
 </footer>
 </body>
 </html>
