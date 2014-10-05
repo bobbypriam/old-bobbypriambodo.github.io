@@ -17,8 +17,11 @@ h1{font: 160%/1 'robotolight',sans-serif;color:#404040;letter-spacing:-0.015em;p
 @media(min-width:60em){h1{font: 240%/1 'robotolight',sans-serif;padding-bottom:.5em;padding-top:1.2em;}}
 h2{font: 130%/1 'robotolight',sans-serif;color:#222;letter-spacing:-0.015em;}
 @media(min-width:40em){h2{font: 175%/1 'robotolight',sans-serif;color:#222;letter-spacing:-0.035em;}}
+h3{font: 120%/1 'robotolight',sans-serif;color:#222;letter-spacing:-0.015em;}
+@media(min-width:40em){h2{font: 155%/1 'robotolight',sans-serif;color:#222;letter-spacing:-0.035em;}}
 article{padding-left:.25em;padding-right:.25em;}@media(min-width:40em){article{padding-left:2em;padding-right:1em;}}
 .code{font: 90%/1.3 Courier, monospace;background:#333;margin-bottom:25px;padding:1.5em;overflow:auto;max-width:100%;color:#fff;}
+footer{font: 80%/1 sans-serif;color:#888;text-align: center;padding: 30px 0;}
 </style>
 </head>
 <body>
@@ -30,6 +33,12 @@ article{padding-left:.25em;padding-right:.25em;}@media(min-width:40em){article{p
 <p>Yang akan dibahas di tutorial ini hanya mengenai penggunaan aima-java. Library tersebut juga tersedia dalam bahasa Python (aima-python) tapi tutorial ini tidak akan membahas hal tersebut.</p>
 
 <p><strong>Perhatian:</strong> Saya juga masih belajar dan bukan tidak mungkin dalam penjelasan berikut akan ada kesalahan-kesalahan seperti tidak mengikuti <em>best practice</em> dan sebagainya. Jika ingin memberikan komentar perbaikan bisa hubungi saya di <a href="mailto:bobby.priambodo@gmail.com">bobby.priambodo@gmail.com</a>.</p>
+
+<h2 id="what-is-aima">What is aima-java?</h2>
+
+<p>Library aima-java adalah sebuah implementasi algoritma-algoritma yang ada di buku <a href="http://aima.cs.berkeley.edu/">Artificial Intelligence: A Modern Approach</a> karangan <a href="http://www.norvig.com/">Norvig</a> dan <a href="http://www.cs.berkeley.edu/~russell/">Russell</a> dalam bahasa Java.</p>
+
+<p>Library ini menyediakan interface-interface yang dapat kita gunakan untuk memecahkan masalah-masalah, di antaranya masalah <em>state space search</em> yang menjadi fokus di Tugas 1.</p>
 
 <h2 id="prerequisite">Prerequisite</h2>
 
@@ -81,6 +90,14 @@ Main.java
 
 <h2 id="necessary-classes">Necessary classes</h2>
 
+<p>Ini adalah bagian paling penting dalam penggunaan library aima-java. Seperti yang dibilang di atas, aima-java menyediakan interface-interface yang berguna untuk pemecahan masalah. Layaknya sebuah interface, tugas kita adalah menyediakan implementasi-implementasi yang diperlukan agar algoritma searching yang disediakan oleh library tersebut dapat bekerja sesuai yang kita inginkan.</p>
+
+<h3>Problem State Representation</h3>
+
 </article>
+
+<footer>
+<p>You have reached the bottom of the page at bobbypriambodo.com! <a href="#">Go up?</a></p>
+</footer>
 </body>
 </html>
