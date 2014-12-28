@@ -1,0 +1,7 @@
+h1 Tutorials
+p Here are the list of tutorials.
+
+ul
+	each tutorial, slug in public.tutorial._data
+		li
+			a(href="/tutorial/#{ slug }") #{ tutorial.title }
