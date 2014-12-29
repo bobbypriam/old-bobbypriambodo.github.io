@@ -3,7 +3,7 @@ html
 	head
 		title= title
 		meta(name="description" content="#{ excerpt ? excerpt : description }")
-		link(rel="stylesheet" href="#{ baseurl }/style.css")
+		link(rel="stylesheet" href="/style.css")
 	body
 		header
 			h1 You don't like problems; I solve them.
@@ -11,8 +11,8 @@ html
 				sub part-time web developer, full-time problem solver
 
 		nav
-			a(href="#{ baseurl }") Home | 
-			a(href="#{ baseurl }/blog") Blog 
+			a(href="/") Home | 
+			a(href="/blog") Blog 
 
 		!= yield
 		
