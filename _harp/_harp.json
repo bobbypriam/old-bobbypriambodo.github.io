@@ -1,6 +1,7 @@
 {
 	"globals": {
 		"title": "Bobby Priambodo",
-		"description": "Personal website of Bobby Priambodo."
+		"description": "Personal website of Bobby Priambodo.",
+		"baseurl": "http://localhost/bobbypriambodo"
 	}
 }

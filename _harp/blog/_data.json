@@ -1,6 +1,10 @@
 {
+	"index": {
+		"title": "Blog",
+		"description": "My blog posts"
+	},
 	"aima": {
-		"title": "Tutorial aima-java untuk searching",
+		"title": "[Tutorial] aima-java untuk searching",
 		"excerpt": "Berawal dari minimnya tutorial yang cukup jelas mengenai bagaimana cara menggunakan library aima-java untuk memecahkan masalah searching sederhana (terlebih jika kita meminta penjelasan dalam Bahasa Indonesia), saya akan mencoba membagi pengetahuan yang telah saya peroleh dari berbagai sumber."
 	}
 }

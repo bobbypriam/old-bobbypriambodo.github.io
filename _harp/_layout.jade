@@ -2,9 +2,18 @@ doctype
 html
 	head
 		title= title
-		meta(name="description" content="#{ description }")
-		link(rel="stylesheet" href="style.css")
+		meta(name="description" content="#{ excerpt ? excerpt : description }")
+		link(rel="stylesheet" href="#{ baseurl }/style.css")
 	body
+		header
+			h1 You don't like problems; I solve them.
+			h2 Bobby Priambodo
+				sub part-time web developer, full-time problem solver
+
+		nav
+			a(href="#{ baseurl }") Home | 
+			a(href="#{ baseurl }/blog") Blog 
+
 		!= yield
 		
 		footer
