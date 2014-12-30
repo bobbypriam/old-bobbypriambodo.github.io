@@ -5,4 +5,4 @@ ul
 	each blog, slug in public.blog._data
 		if slug !== 'index'
 			li
-				a(href="#{ baseurl }/blog/#{ slug }.html") #{ blog.title }
+				a(href="/blog/#{ slug }.html") #{ blog.title }
