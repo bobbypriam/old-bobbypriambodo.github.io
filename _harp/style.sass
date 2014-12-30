@@ -1,0 +1,71 @@
+$background-color: #fdfdfd
+$brand-color: #c34646
+$body-color: #404040
+$grey-color: #888
+$link-color: $brand-color
+$page-width: 800px
+$gutter: 20px
+
+$code-background: #222
+$code-color: #fdfdfd
+
+$font-family: Arial, sans-serif
+$font-size: 100%
+
+// Global styles
+html, body
+	margin: 0 auto
+	padding: 0
+
+body
+	background: $background-color
+	color: $body-color
+	font: $font-size $font-family
+	max-width: $page-width
+	padding: $gutter
+
+sub
+	vertical-align: baseline
+	display: block
+	color: $grey-color
+
+h1, h2
+	color: $brand-color
+
+a
+	color: $link-color
+	text-decoration: none
+
+// code
+// 	background: $code-background
+// 	color: $code-color
+// 	border-radius: 5px
+// 	padding: .2em;
+// 	line-height: 1.5em;
+
+pre
+	background: $code-background
+	color: $code-color
+	padding: 1em
+	border-radius: 10px
+
+p 
+	line-height: 1.5em
+
+header
+	border-bottom: 1px solid $brand-color
+	h2
+		text-align: right
+
+nav 
+	padding: 10px
+	text-align: center
+
+footer
+	font: 80%/1 $font-family;
+	color:#888;
+	text-align: center;
+	padding: 30px 0;
+
+aside
+	width: 25%

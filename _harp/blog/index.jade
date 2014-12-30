@@ -1,0 +1,8 @@
+h1 Blog
+p My blog posts.
+
+ul
+	each blog, slug in public.blog._data
+		if slug !== 'index'
+			li
+				a(href="/blog/#{ slug }.html") #{ blog.title }
