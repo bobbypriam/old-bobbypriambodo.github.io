@@ -7,6 +7,7 @@ var scsslint = require('gulp-scss-lint');
 var minifyCss = require('gulp-minify-css');
 var cache = require('gulp-cached');
 var rename = require('gulp-rename');
+var autoprefixer = require('gulp-autoprefixer');
 
 gulp.task('scss-lint', function () {
   gulp.src('./src/*.scss')
@@ -19,6 +20,7 @@ gulp.task('sass-dev', function () {
     .pipe(cache('sassdev'))
     .pipe(sourcemaps.init())
       .pipe(sass())
+      .pipe(autoprefixer({ browsers: ['last 2 versions'] }))
     .pipe(sourcemaps.write('./maps'))
     .pipe(gulp.dest('./dist'));
 });
@@ -28,6 +30,7 @@ gulp.task('sass-dist', function () {
     .pipe(cache('sassdist'))
     .pipe(sourcemaps.init())
       .pipe(sass())
+      .pipe(autoprefixer({ browsers: ['last 2 versions'] }))
       .pipe(minifyCss())
       .pipe(rename({ extname: '.min.css' }))
     .pipe(sourcemaps.write('./maps'))
@@ -35,5 +38,5 @@ gulp.task('sass-dist', function () {
 });
 
 gulp.task('watch', function () {
-  gulp.watch('./src/*.scss', ['scss-lint']);
+  gulp.watch('./src/*.scss', ['scss-lint', 'sass-dev']);
 });
