@@ -1,7 +1,71 @@
 $background: #fff;
-$base-color: #444;
+$base-color: #555;
+$link-color: #777;
+$link-hover-color: #999;
+$base-font-size: 22px;
+$base-font-family: 'Vollkorn', serif;
+
+@mixin vertical-align($position: relative) {
+  position: $position;
+  top: 50%;
+  transform: translateY(-50%);
+}
 
 body {
   background: $background;
   color: $base-color;
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+}
+
+h1 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 800;
+}
+
+a {
+  color: $link-color;
+  text-decoration: none;
+
+  &:hover {
+    color: $link-hover-color;
+  }
+}
+
+header {
+  padding-top: 23%;
+  text-align: center;
+
+  .wrapper {
+    margin: 0 auto;
+    max-width: 700px;
+  }
+
+  h1 {
+    font-size: 3em;
+    line-height: 1em;
+    margin: 0;
+  }
+
+  p {
+    margin: 0;
+    position: relative;
+
+    &:first-child {
+      left: -35%;
+    }
+
+    &:last-child {
+      left: 25%;
+    }
+  }
+}
+
+footer {
+  bottom: 50px;
+  font-size: .8em;
+  left: 0;
+  position: absolute;
+  right: 0;
+  text-align: center;
 }
