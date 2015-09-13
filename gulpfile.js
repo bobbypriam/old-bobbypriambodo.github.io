@@ -19,7 +19,7 @@ gulp.task('sass-dev', function () {
     .pipe(cache('sassdev'))
     .pipe(sourcemaps.init())
       .pipe(sass())
-    .pipe(sourcemaps.write('./dist/maps'))
+    .pipe(sourcemaps.write('./maps'))
     .pipe(gulp.dest('./dist'));
 });
 
@@ -29,8 +29,8 @@ gulp.task('sass-dist', function () {
     .pipe(sourcemaps.init())
       .pipe(sass())
       .pipe(minifyCss())
-    .pipe(sourcemaps.write('./dist/maps'))
-    .pipe(rename({ extname: '.min.css' }))
+      .pipe(rename({ extname: '.min.css' }))
+    .pipe(sourcemaps.write('./maps'))
     .pipe(gulp.dest('./dist'));
 });
 

@@ -1,0 +1,1 @@
+{"version":3,"sources":["style.scss"],"names":[],"mappings":"AAGA,IAAI,CAAC;EACH,UAAU,EAJC,IAAI;EAKf,KAAK,EAJM,IAAI,GAEX","file":"style.css","sourcesContent":["$background: #fff;\n$base-color: #444;\n\nbody {\n  background: $background;\n  color: $base-color;\n}\n"],"sourceRoot":"/source/"}
