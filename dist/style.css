@@ -31,6 +31,12 @@ header {
       left: -35%; }
     header p:last-child {
       left: 25%; }
+  @media (max-width: 710px) {
+    header h1 {
+      font-size: 2em; }
+    header p:first-child,
+    header p:last-child {
+      left: 0; } }
 
 footer {
   bottom: 50px;

@@ -59,6 +59,17 @@ header {
       left: 25%;
     }
   }
+
+  @media (max-width: 710px) {
+    h1 {
+      font-size: 2em;
+    }
+
+    p:first-child,
+    p:last-child {
+      left: 0;
+    }
+  }
 }
 
 footer {
