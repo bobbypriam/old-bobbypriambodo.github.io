@@ -1,2 +1,2 @@
-body{background:#fff;color:#444}
+footer,header{text-align:center}body{background:#fff;color:#555;font-family:Vollkorn,serif;font-size:22px}h1{font-family:'Open Sans',sans-serif;font-weight:800}a{color:#f44336;text-decoration:none}a:hover{color:#ea1c0d}header{padding-top:23%}header .wrapper{margin:0 auto;max-width:700px}header h1{font-size:3em;line-height:1em;margin:0}header p{margin:0;position:relative}header p:first-child{left:-35%}header p:last-child{left:25%}@media (max-width:710px){header h1{font-size:2em}header p:first-child,header p:last-child{left:0}}footer{bottom:50px;font-size:.8em;left:0;position:absolute;right:0}
 /*# sourceMappingURL=maps/style.min.css.map */
