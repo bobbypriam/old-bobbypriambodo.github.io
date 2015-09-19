@@ -1,0 +1,79 @@
+$background: #fff;
+$base-color: #555;
+$link-color: #f44336;
+$link-hover-color: darken($link-color, 10%);
+$base-font-size: 22px;
+$base-font-family: 'Vollkorn', serif;
+
+@mixin vertical-align($position: relative) {
+  position: $position;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+body {
+  background: $background;
+  color: $base-color;
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+}
+
+h1 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 800;
+}
+
+a {
+  color: $link-color;
+  text-decoration: none;
+
+  &:hover {
+    color: $link-hover-color;
+  }
+}
+
+header {
+  padding-top: 23%;
+  text-align: center;
+
+  .wrapper {
+    margin: 0 auto;
+    max-width: 700px;
+  }
+
+  h1 {
+    font-size: 3em;
+    line-height: 1em;
+    margin: 0;
+  }
+
+  p {
+    margin: 0;
+    position: relative;
+
+    &:first-child {
+      left: -35%;
+    }
+
+    &:last-child {
+      left: 25%;
+    }
+  }
+
+  @media (max-width: 710px) {
+    h1 {
+      font-size: 2em;
+    }
+
+    p:first-child,
+    p:last-child {
+      left: 0;
+    }
+  }
+}
+
+footer {
+  margin-top: 15%;
+  font-size: .8em;
+  text-align: center;
+}
