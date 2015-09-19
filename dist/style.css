@@ -9,10 +9,10 @@ h1 {
   font-weight: 800; }
 
 a {
-  color: #777;
+  color: #f44336;
   text-decoration: none; }
   a:hover {
-    color: #999; }
+    color: #ea1c0d; }
 
 header {
   padding-top: 23%;
